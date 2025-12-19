@@ -36,26 +36,14 @@ export default function Hero() {
               
               {/* 虚拟形象图片 */}
               <div className="relative w-full h-full">
-                {/* 占位图 - 你需要替换成真实的主播虚拟形象 */}
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center border-4 border-cyan-400/30">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">👾</div>
-                    <p className="text-cyan-400 font-bold">请替换为主播形象</p>
-                    <p className="text-xs text-gray-400 mt-2">
-                      /public/images/avatar.png
-                    </p>
-                  </div>
-                </div>
-                {/* 
-                  真实使用时取消注释：
-                  <Image
-                    src="/images/avatar.png"
-                    alt="Virtual Avatar"
-                    fill
-                    className="object-contain drop-shadow-2xl"
-                    priority
-                  />
-                */}
+                {/* 真实图片 */}
+                <Image
+                  src="/images/avatar.png"
+                  alt="Virtual Avatar"
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  priority
+                />
               </div>
               
               {/* 旋转光环 */}
