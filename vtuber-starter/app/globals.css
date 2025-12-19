@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================
+   全局样式
+   ================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0e27;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ================================
+   自定义滚动条（赛博风格）
+   ================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e27;
+  border-left: 1px solid #1a1f3a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00d9ff, #b537f2);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00f0ff, #d537f2);
+}
+
+/* ================================
+   霓虹文字效果
+   ================================ */
+
+.neon-text {
+  text-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 40px currentColor,
+    0 0 80px currentColor;
+}
+
+.neon-text-cyan {
+  color: #00d9ff;
+  text-shadow: 
+    0 0 10px #00d9ff,
+    0 0 20px #00d9ff,
+    0 0 40px #00d9ff;
+}
+
+.neon-text-pink {
+  color: #ff2e97;
+  text-shadow: 
+    0 0 10px #ff2e97,
+    0 0 20px #ff2e97,
+    0 0 40px #ff2e97;
+}
+
+/* ================================
+   故障效果动画
+   ================================ */
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                 0.025em 0.04em 0 #fffc00;
+    transform: translate(0);
+  }
+  15% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                 0.025em 0.04em 0 #fffc00;
+  }
+  16% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+                 -0.05em -0.05em 0 #fffc00;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+                 -0.05em -0.05em 0 #fffc00;
+  }
+  50% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+                 0 -0.04em 0 #fffc00;
+    transform: translate(-2px, 2px);
+  }
+  99% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+                 0 -0.04em 0 #fffc00;
+  }
+  100% {
+    text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+                 -0.04em -0.025em 0 #fffc00;
+    transform: translate(0);
+  }
+}
+
+.glitch {
+  animation: glitch 1s linear infinite;
+}
+
+/* 鼠标悬停时触发故障效果 */
+.glitch-hover:hover {
+  animation: glitch 0.3s linear 2;
+}
+
+/* ================================
+   玻璃态效果
+   ================================ */
+
+.glass-card {
+  background: rgba(26, 31, 58, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 217, 255, 0.1);
+}
+
+.glass-card:hover {
+  background: rgba(26, 31, 58, 0.6);
+  border-color: rgba(0, 217, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 217, 255, 0.2);
+}
+
+/* ================================
+   霓虹边框效果
+   ================================ */
+
+.neon-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(#1a1f3a, #1a1f3a) padding-box,
+              linear-gradient(135deg, #00d9ff, #ff2e97) border-box;
+}
+
+.neon-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  padding: 2px;
+  background: linear-gradient(135deg, #00d9ff, #ff2e97);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+  filter: blur(10px);
+}
+
+.neon-border:hover::before {
+  opacity: 0.7;
+}
+
+/* ================================
+   加载动画
+   ================================ */
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* ================================
+   页面过渡效果
+   ================================ */
+
+.page-transition {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   工具类
+   ================================ */
+
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding: 0 2rem;
+  }
+}
+
+/* 隐藏滚动条但保持可滚动 */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
